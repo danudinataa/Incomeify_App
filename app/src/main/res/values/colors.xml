@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="teal_deer">#A1F6AD</color>
+    <color name="la_salle_green">#146D33</color>
+    <color name="tea_green">#C7FFC2</color>
+    <color name="may_green">#3E8643</color>
+    <color name="iguana_green">#72BC73</color>
+    <color name="menthol">#BAFFB6</color>
+    <color name="fern_green">#3B7D41</color>
+    <color name="smith_apple">#A8F5A5</color>
+    <color name="dark_moss_green">#41682C</color>
+    <color name="green_silver">#D0E7D2</color>
+    <color name="red">#FF0000</color>
+</resources>

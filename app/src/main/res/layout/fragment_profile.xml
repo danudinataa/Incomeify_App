@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.profile.ProfileFragment">
+
+    <ImageView
+        android:id="@+id/bg_rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:contentDescription="@string/background_profile"
+        android:src="@drawable/rectangle_bottom_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ci_profile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bg_rectangle"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        style="@style/Text.Bold"
+        android:layout_width="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ci_profile"
+        tools:text="USER NAME" />
+
+    <TextView
+        style="@style/Text.Medium"
+        android:layout_width="0dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/tv_username"
+        app:layout_constraintStart_toStartOf="@+id/tv_username"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username"
+        tools:text="user@gmail.com" />
+
+    <TextView
+        android:id="@+id/tv_language"
+        style="@style/Text.Medium"
+        android:layout_width="wrap_content"
+        android:text="@string/language"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bg_rectangle" />
+
+    <Button
+        android:id="@+id/btn_change_language"
+        style="@style/CustomIconButton"
+        android:layout_width="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/change_app_language"
+        app:icon="@drawable/baseline_language_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_language"/>
+
+    <TextView
+        android:id="@+id/tv_theme"
+        style="@style/Text.Medium"
+        android:layout_width="wrap_content"
+        android:text="@string/theme"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_change_language" />
+
+    <Button
+        android:id="@+id/btn_change_theme"
+        style="@style/CustomIconButton"
+        android:layout_width="0dp"
+        android:layout_marginTop="4dp"
+        android:clickable="false"
+        android:text="@string/change_app_theme"
+        app:icon="@drawable/baseline_theme_24"
+        app:layout_constraintEnd_toEndOf="@+id/btn_change_language"
+        app:layout_constraintStart_toStartOf="@+id/btn_change_language"
+        app:layout_constraintTop_toBottomOf="@+id/tv_theme" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:layout_width="40dp"
+        android:layout_height="24dp"
+        android:checked="true"
+        android:layout_marginEnd="20dp"
+        app:thumbTint="@color/may_green"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_change_theme"
+        app:layout_constraintEnd_toEndOf="@+id/btn_change_theme"
+        app:layout_constraintTop_toTopOf="@+id/btn_change_theme" />
+
+    <TextView
+        android:id="@+id/logout"
+        style="@style/Text.Medium"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/logout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_change_theme" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/CustomIconButton"
+        android:layout_width="0dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/logout_from_app"
+        android:textColor="@color/red"
+        app:icon="@drawable/baseline_exit_to_app_24"
+        app:iconTint="@color/red"
+        app:layout_constraintEnd_toEndOf="@+id/btn_change_theme"
+        app:layout_constraintStart_toStartOf="@+id/btn_change_theme"
+        app:layout_constraintTop_toBottomOf="@+id/logout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

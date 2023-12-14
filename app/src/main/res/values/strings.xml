@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Incomeify App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="background_profile">Background Profile</string>
+    <string name="language">Language</string>
+    <string name="change_app_language">Change app language</string>
+    <string name="theme">Theme</string>
+    <string name="change_app_theme">Change app theme</string>
+    <string name="logout">Logout</string>
+    <string name="logout_from_app">Logout from app</string>
+    <string name="career_level_image">Career Level Image</string>
+    <string name="saved_identify">Saved Identify</string>
+</resources>
