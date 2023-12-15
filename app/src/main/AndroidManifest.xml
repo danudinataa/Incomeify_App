@@ -13,6 +13,9 @@
         android:theme="@style/Theme.IncomeifyApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.dashboard.home.income.IncomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.dashboard.saved.detail.DetailSavedActivity"
             android:exported="false" />
         <activity

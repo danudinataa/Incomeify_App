@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.saved.detail.DetailSavedActivity">
+    tools:context=".ui.dashboard.home.income.IncomeActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:minHeight="?attr/actionBarSize"
                 app:navigationIcon="@drawable/baseline_arrow_back_ios_24"
                 app:navigationIconTint="@color/may_green"
-                app:title="Detail Saved"
+                app:title="Income"
                 app:titleTextAppearance="@style/Text.Title"
                 app:titleTextColor="@color/la_salle_green" />
         </com.google.android.material.appbar.AppBarLayout>
@@ -117,13 +117,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="12dp"
             android:backgroundTint="@color/tea_green"
             app:cardCornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_your_information"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:strokeColor="@color/la_salle_green"
             app:strokeWidth="2dp">
 
@@ -266,6 +264,15 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            style="@style/RegularButton"
+            android:text="@string/save"
+            android:layout_marginVertical="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_information" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

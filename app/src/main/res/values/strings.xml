@@ -11,4 +11,12 @@
     <string name="logout_from_app">Logout from app</string>
     <string name="career_level_image">Career Level Image</string>
     <string name="saved_identify">Saved Identify</string>
+    <string name="income_information">Here is an estimate of the salary you can get based on the information you input</string>
+    <string name="your_information">Your Information</string>
+    <string name="career">Career Level</string>
+    <string name="experiences">Experiences</string>
+    <string name="employment_type">Employment Type</string>
+    <string name="location">Location</string>
+    <string name="education">Education</string>
+    <string name="save">SAVE</string>
 </resources>
