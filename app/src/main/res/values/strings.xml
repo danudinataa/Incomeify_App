@@ -19,4 +19,191 @@
     <string name="location">Location</string>
     <string name="education">Education</string>
     <string name="save">SAVE</string>
+    <string name="account_profile">Account Profile</string>
+    <string name="image_username">Image Username</string>
+    <string name="q_career_level">What is your career level?</string>
+    <string name="desc_career_level">Select your career level</string>
+    <string name="desc_experiences">Input your experiences in year</string>
+    <string name="q_experiences">How long have you worked?</string>
+    <string name="q_employment_type">What is your employment type?</string>
+    <string name="desc_employment_type">Select your employment type</string>
+    <string name="q_location">Where do you worked?</string>
+    <string name="desc_location">Select location you worked</string>
+    <string name="q_education">What is your last education?</string>
+    <string name="desc_education">Select your last education</string>
+    <string name="submit">SUBMIT</string>
+    <string name="home">Home</string>
+    <string name="saved">Saved</string>
+    <string name="profile">Profile</string>
+
+    <!-- Dropdown Items-->
+    <string-array name="list_career_level">
+        <item>Supervisor/Coordinator</item>
+        <item>Employee (non-management &amp; non-supervisor</item>
+        <item>Manager/Assistant Manager</item>
+        <item>Fresh Graduate/Less than 1 year experience</item>
+        <item>CEO/General Manager/Director/Senior Manager</item>
+    </string-array>
+
+    <string-array name="list_employment_type">
+        <item>Fulltime</item>
+        <item>Contract</item>
+        <item>Part Time</item>
+        <item>Temporary</item>
+    </string-array>
+
+    <string-array name="list_education">
+        <item>Sarjana (S1)</item>
+        <item>Magister (S2)</item>
+        <item>SMU/SMK/STM</item>
+        <item>D4 (Diploma)</item>
+        <item>Doktor (S3)</item>
+    </string-array>
+
+    <string-array name="list_location">
+        <item>Aceh</item>
+        <item>Ambon</item>
+        <item>Badung</item>
+        <item>Bali</item>
+        <item>Banjar</item>
+        <item>Banjarbaru</item>
+        <item>Banjarnegara</item>
+        <item>Bangka</item>
+        <item>Bangka Belitung</item>
+        <item>Banda Aceh</item>
+        <item>Bandar Lampung</item>
+        <item>Bandung</item>
+        <item>Bantul</item>
+        <item>Banyuwangi</item>
+        <item>Batam</item>
+        <item>Batang</item>
+        <item>Bekasi</item>
+        <item>Bengkulu</item>
+        <item>Bitung</item>
+        <item>Bogor</item>
+        <item>Bontang</item>
+        <item>Brebes</item>
+        <item>Depok</item>
+        <item>Denpasar</item>
+        <item>Dumai</item>
+        <item>Gorontalo</item>
+        <item>Gowa</item>
+        <item>Gresik</item>
+        <item>Halmahera</item>
+        <item>Hulu Sungai Tengah</item>
+        <item>Jakarta Barat</item>
+        <item>Jakarta Pusat</item>
+        <item>Jakarta Raya</item>
+        <item>Jakarta Selatan</item>
+        <item>Jakarta Timur</item>
+        <item>Jakarta Utara</item>
+        <item>Jambi</item>
+        <item>Jayapura</item>
+        <item>Jepara</item>
+        <item>Jombang</item>
+        <item>Kalimantan Barat</item>
+        <item>Kalimantan Selatan</item>
+        <item>Kalimantan Tengah</item>
+        <item>Kalimantan Timur</item>
+        <item>Kalimantan Utara</item>
+        <item>Karawang</item>
+        <item>Kediri</item>
+        <item>Kendari</item>
+        <item>Ketapang</item>
+        <item>Klaten</item>
+        <item>Kota Banda Aceh</item>
+        <item>Kotabaru</item>
+        <item>Kotawaringin Barat</item>
+        <item>Kotawaringin Timur</item>
+        <item>Kramat Jati</item>
+        <item>Kudus</item>
+        <item>Kulon Progo</item>
+        <item>Kupang</item>
+        <item>Kuta</item>
+        <item>Kutai Barat</item>
+        <item>Kutai Kartanegara</item>
+        <item>Kutai Timur</item>
+        <item>Lampung</item>
+        <item>Lhokseumawe</item>
+        <item>Lombok</item>
+        <item>Madura</item>
+        <item>Magelang</item>
+        <item>Madiun</item>
+        <item>Makassar</item>
+        <item>Malang</item>
+        <item>Maluku</item>
+        <item>Maluku Utara</item>
+        <item>Mamuju</item>
+        <item>Manado</item>
+        <item>Manokwari</item>
+        <item>Martapura</item>
+        <item>Mataram</item>
+        <item>Medan</item>
+        <item>Metro</item>
+        <item>Minahasa</item>
+        <item>Mojoagung</item>
+        <item>Mojokerto</item>
+        <item>Padang</item>
+        <item>Palangkaraya</item>
+        <item>Palembang</item>
+        <item>Palopo</item>
+        <item>Palu</item>
+        <item>Pandeglang</item>
+        <item>Pangkal Pinang</item>
+        <item>Pasuruan</item>
+        <item>Pekalongan</item>
+        <item>Pekanbaru</item>
+        <item>Pemalang</item>
+        <item>Penajam Paser Utara</item>
+        <item>Pontianak</item>
+        <item>Poso</item>
+        <item>Prabumulih</item>
+        <item>Probolinggo</item>
+        <item>Purwakarta</item>
+        <item>Purwokerto</item>
+        <item>Purworejo</item>
+        <item>Rangkasbitung</item>
+        <item>Riau</item>
+        <item>Rumbai</item>
+        <item>Samarinda</item>
+        <item>Samarinda Seberang</item>
+        <item>Sampit</item>
+        <item>Sanur</item>
+        <item>Semarang</item>
+        <item>Seminyak</item>
+        <item>Serang</item>
+        <item>Sidoarjo</item>
+        <item>Sibolga</item>
+        <item>Singkawang</item>
+        <item>Sleman</item>
+        <item>Solo</item>
+        <item>South Jakarta</item>
+        <item>Sulawesi Barat</item>
+        <item>Sulawesi Selatan</item>
+        <item>Sulawesi Tengah</item>
+        <item>Sulawesi Tenggara</item>
+        <item>Sulawesi Utara</item>
+        <item>Sumatera Barat</item>
+        <item>Sumatera Selatan</item>
+        <item>Sumatera Utara</item>
+        <item>Surabaya</item>
+        <item>Surakarta</item>
+        <item>Tambun</item>
+        <item>Tanah Abang</item>
+        <item>Tanah Bumbu</item>
+        <item>Tanjung Balai</item>
+        <item>Tanjung Pinang</item>
+        <item>Tangerang</item>
+        <item>Tarakan</item>
+        <item>Tasikmalaya</item>
+        <item>Tebingtinggi</item>
+        <item>Tegal</item>
+        <item>Temanggung</item>
+        <item>Timika</item>
+        <item>Tuban</item>
+        <item>Ungaran</item>
+        <item>Wonogiri</item>
+        <item>Yogyakarta</item>
+    </string-array>
+
 </resources>
