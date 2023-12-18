@@ -8,19 +8,20 @@ import androidx.fragment.app.Fragment
 import com.incomeify.incomeifyapp.R
 import android.widget.Button
 
-class OnboardingFragment : Fragment() {
+class OnboardingFragment2 : Fragment() {
 
     private var listener: OnboardingNavigationListener? = null
 
     interface OnboardingNavigationListener {
         fun onNextClicked()
+        fun onBackClicked()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_onboarding, container, false)
+        return inflater.inflate(R.layout.fragment_onboarding_2, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,6 +31,12 @@ class OnboardingFragment : Fragment() {
         buttonNext.setOnClickListener {
             listener?.onNextClicked()
         }
+
+        val buttonBack = view.findViewById<Button>(R.id.buttonOnboardingBack)
+        buttonBack.setOnClickListener {
+            listener?.onBackClicked()
+        }
+
     }
 
     fun setOnboardingNavigationListener(listener: OnboardingNavigationListener) {

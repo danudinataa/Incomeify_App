@@ -36,4 +36,10 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="CustomTextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeWidth">3.5dp</item> <!-- Increase stroke width -->
+        <item name="boxStrokeWidthFocused">3.5dp</item> <!-- Increase stroke width when focused -->
+        <item name="boxStrokeColor">@color/dark_moss_green</item>
+    </style>
+
 </resources>
