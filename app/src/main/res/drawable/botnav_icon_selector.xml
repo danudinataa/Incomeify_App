@@ -1,0 +1,5 @@
+<!-- res/drawable/bottom_navigation_text_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:color="@color/la_salle_green" />
+    <item android:color="@color/may_green" />
+</selector>

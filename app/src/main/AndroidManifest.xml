@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".IncomeifyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,23 +14,24 @@
         android:theme="@style/Theme.IncomeifyApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.dashboard.home.income.IncomeActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".ui.dashboard.saved.detail.DetailSavedActivity"
             android:exported="false" />
         <activity
             android:name=".ui.dashboard.DashboardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.auth.AuthActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.auth.AuthActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
