@@ -1,60 +1,119 @@
 package com.incomeify.incomeifyapp.ui.auth.register
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Editable
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.TextPaint
+import android.text.TextWatcher
+import android.text.style.ClickableSpan
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.text.method.LinkMovementMethod
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.incomeify.incomeifyapp.R
+import com.incomeify.incomeifyapp.databinding.FragmentRegisterBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RegisterFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RegisterFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentRegisterBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false)
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegisterFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegisterFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Handle Register button click
+        binding.registerButton.setOnClickListener {
+            registerUser()
+        }
+
+        setupClickableLoginText()
+        setupPasswordConfirmationWatcher()
+    }
+
+    private fun setupClickableLoginText() {
+        val spannable = SpannableString("Already have an account? Login").apply {
+            val start = indexOf("Login")
+            val end = start + "Login".length
+            setSpan(object : NoUnderlineSpan() {
+                override fun onClick(widget: View) {
+                    navigateToLogin()
                 }
+            }, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            setSpan(ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.iguana_green)), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+        binding.loginText.text = spannable
+        binding.loginText.movementMethod = LinkMovementMethod.getInstance()
+    }
+
+    private fun setupPasswordConfirmationWatcher() {
+        binding.confirmPasswordInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                validatePasswords()
             }
+        })
+    }
+
+    private fun validatePasswords() {
+        val password = binding.passwordInput.text.toString()
+        val confirmPassword = binding.confirmPasswordInput.text.toString()
+        if (password != confirmPassword) {
+            binding.confirmPasswordInput.error = "Passwords do not match"
+        } else {
+            binding.confirmPasswordInput.error = null
+        }
+    }
+
+    private fun registerUser() {
+        val name = binding.nameInput.text.toString()
+        val email = binding.emailInput.text.toString()
+        val password = binding.passwordInput.text.toString()
+        val confirmPassword = binding.confirmPasswordInput.text.toString()
+
+        if (password == confirmPassword) {
+            // Implement your registration logic here
+        } else {
+            binding.confirmPasswordInput.error = "Passwords do not match"
+        }
+    }
+
+    interface RegisterNavigationListener {
+        fun navigateToLogin()
+    }
+
+    private var navigationListener: RegisterNavigationListener? = null
+
+    fun setRegisterNavigationListener(listener: RegisterNavigationListener) {
+        navigationListener = listener
+    }
+
+    private fun navigateToLogin() {
+        navigationListener?.navigateToLogin()
+    }
+
+    abstract class NoUnderlineSpan : ClickableSpan() {
+        override fun updateDrawState(ds: TextPaint) {
+            super.updateDrawState(ds)
+            ds.isUnderlineText = false
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
