@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.incomeify.incomeifyapp.R
 import android.widget.Button
+import android.widget.LinearLayout
 
 class OnboardingFragment3 : Fragment() {
 
@@ -35,6 +36,27 @@ class OnboardingFragment3 : Fragment() {
         val buttonBack = view.findViewById<Button>(R.id.buttonOnboardingBack)
         buttonBack.setOnClickListener {
             listener?.onBackClicked()
+        }
+        initializeIndicatorDots(view, pageIndex = 2)
+    }
+
+    private fun initializeIndicatorDots(view: View, pageIndex: Int) {
+        val dotsLayout = view.findViewById<LinearLayout>(R.id.indicatorDots)
+        dotsLayout.removeAllViews()
+        val dots = arrayOfNulls<View>(3)
+
+        val dotSize = resources.getDimensionPixelSize(R.dimen.dot_size)
+        val dotMargin = resources.getDimensionPixelSize(R.dimen.dot_margin)
+
+        for (i in dots.indices) {
+            dots[i] = View(context).apply {
+                layoutParams = LinearLayout.LayoutParams(dotSize, dotSize).also {
+                    it.setMargins(if (i == 0) 0 else dotMargin, 0, 0, 0)
+                }
+                setBackgroundResource(R.drawable.dot_selector)
+                isSelected = i == pageIndex // Set the dot as selected based on the current page index
+            }
+            dotsLayout.addView(dots[i])
         }
     }
 
