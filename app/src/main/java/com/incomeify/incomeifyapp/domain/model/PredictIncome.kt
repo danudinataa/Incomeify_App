@@ -10,6 +10,6 @@ data class PredictIncome (
     @field:SerializedName("prediction")
     val prediction: Int,
 
-    @field:SerializedName("statur")
+    @field:SerializedName("status")
     val status: Boolean
 ) : Parcelable

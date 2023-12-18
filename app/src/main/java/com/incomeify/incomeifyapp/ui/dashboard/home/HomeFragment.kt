@@ -15,7 +15,6 @@ import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private val homeViewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,13 +49,6 @@ class HomeFragment : Fragment() {
         } else {
             lifecycleScope.launch {
                 withContext(Dispatchers.IO) {
-                    homeViewModel.predictIncome(
-                        careerLevel = careerLevel,
-                        location = location,
-                        experienceLevel = experienceLevel.toDouble(),
-                        educationLevel = educationLevel,
-                        employmentType = employmentType
-                    )
 
                     // TODO: go to income activity 
                 }

@@ -108,6 +108,12 @@
         <item name="endIconTint">@color/la_salle_green</item>
         <item name="endIconMode">clear_text</item>
     </style>
+
+    <style name="CustomTextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeWidth">3.5dp</item> <!-- Increase stroke width -->
+        <item name="boxStrokeWidthFocused">3.5dp</item> <!-- Increase stroke width when focused -->
+        <item name="boxStrokeColor">@color/dark_moss_green</item>
+    </style>
     
     <!-- Indicator -->
     <style name="CustomActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">

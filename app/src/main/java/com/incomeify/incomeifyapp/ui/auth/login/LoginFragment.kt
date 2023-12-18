@@ -1,5 +1,6 @@
 package com.incomeify.incomeifyapp.ui.auth.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
@@ -14,6 +15,7 @@ import com.incomeify.incomeifyapp.R
 import com.incomeify.incomeifyapp.databinding.FragmentLoginBinding
 import android.text.method.LinkMovementMethod
 import android.text.style.ForegroundColorSpan
+import com.incomeify.incomeifyapp.ui.dashboard.DashboardActivity
 
 class LoginFragment : Fragment() {
 
@@ -33,7 +35,9 @@ class LoginFragment : Fragment() {
 
         // Handle Login button click
         binding.loginButton.setOnClickListener {
-            // Handle login logic here
+            val intent = Intent(requireActivity(), DashboardActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
 
         // Handle Google sign-in click
