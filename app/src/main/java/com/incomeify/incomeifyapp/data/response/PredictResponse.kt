@@ -1,11 +1,11 @@
-package com.incomeify.incomeifyapp.domain.model
+package com.incomeify.incomeifyapp.data.response
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class PredictIncome (
+data class PredictResponse (
 
     @field:SerializedName("prediction")
     val prediction: Int,

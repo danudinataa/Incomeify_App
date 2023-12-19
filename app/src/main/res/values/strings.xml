@@ -50,6 +50,7 @@
     <string name="register_here">Register</string>
     <string name="app_logo">Logo</string>
     <string name="google_login">Continue with Google</string>
+    <string name="income_text">Rp. %1$d</string>
     <string name="onboarding_image">Image</string>
     <string name="onboarding_text1">Welcome to Incomeify, your smart career companion! Start your journey towards financial clarity and uncover your professional worth.</string>
     <string name="onboarding_text2">Curious about your skills value? Incomeify offers personalized data-driven predictions on salary trends and earning potential.</string>
@@ -58,7 +59,7 @@
     <!-- Dropdown Items-->
     <string-array name="list_career_level">
         <item>Supervisor/Coordinator</item>
-        <item>Employee (non-management &amp; non-supervisor</item>
+        <item>Employee (non-management &amp; non-supervisor)</item>
         <item>Manager/Assistant Manager</item>
         <item>Fresh Graduate/Less than 1 year experience</item>
         <item>CEO/General Manager/Director/Senior Manager</item>
