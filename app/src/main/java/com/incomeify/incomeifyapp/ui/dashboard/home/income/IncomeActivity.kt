@@ -23,6 +23,7 @@ class IncomeActivity : AppCompatActivity() {
         val income = intent.getIntExtra(INCOME, 0)
 
         with(binding) {
+            // TODO: Binding username 
             tvIncome.text = getString(R.string.income_text, income)
             tvCareerLevel.text = requestBody.careerLevel
             tvExperiences.text = requestBody.experienceLevel.toString()

@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.incomeify.incomeifyapp.R
 import com.incomeify.incomeifyapp.databinding.FragmentHomeBinding
 import com.incomeify.incomeifyapp.domain.model.RequestPredict
 import com.incomeify.incomeifyapp.domain.viewmodel.MainViewModel
 import com.incomeify.incomeifyapp.domain.viewmodel.ViewModelFactory
+import com.incomeify.incomeifyapp.ui.customview.CustomDialog
 import com.incomeify.incomeifyapp.ui.dashboard.home.income.IncomeActivity
 import com.incomeify.incomeifyapp.utils.Constants.INCOME
 import com.incomeify.incomeifyapp.utils.Constants.REQUEST_BODY
@@ -38,18 +40,22 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         with(binding) {
+            // TODO: Binding Username
+
             btnSubmit.setOnClickListener { submitPredict() }
         }
 
         homeViewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
-            // TODO: binding loading logic
+            binding.loading.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
 
         homeViewModel.isError.observe(viewLifecycleOwner) { isError ->
             if (isError) {
-                // TODO: custom error dialog
+                CustomDialog(
+                    requireContext(),
+                    getString(R.string.error_submit),
+                    R.raw.error_anim).show()
             }
         }
 
@@ -73,19 +79,19 @@ class HomeFragment : Fragment() {
         val educationLevel = binding.autoCompleteTextEducation.text.toString()
         val employmentType = binding.autoCompleteTextEmployment.text.toString()
 
-        requestBody = RequestPredict(
-            careerLevel = careerLevel,
-            location = location,
-            experienceLevel = experienceLevel.toDouble(),
-            educationLevel = educationLevel,
-            employmentType = employmentType
-        )
-
         if (listOf(careerLevel, location, experienceLevel, educationLevel, employmentType).any { it.isBlank() }) {
-            // TODO: dialog error 
-            Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+            CustomDialog(
+                requireContext(),
+                getString(R.string.error_input),
+                R.raw.error_anim).show()
         } else {
-
+            requestBody = RequestPredict(
+                careerLevel = careerLevel,
+                location = location,
+                experienceLevel = experienceLevel.toDouble(),
+                educationLevel = educationLevel,
+                employmentType = employmentType
+            )
             homeViewModel.predictIncome(requestBody)
         }
     }
