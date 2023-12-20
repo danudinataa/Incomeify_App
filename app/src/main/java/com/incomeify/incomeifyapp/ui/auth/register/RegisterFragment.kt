@@ -12,16 +12,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.text.method.LinkMovementMethod
+import android.util.Log
+import androidx.lifecycle.Observer
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.incomeify.incomeifyapp.R
 import com.incomeify.incomeifyapp.databinding.FragmentRegisterBinding
+import androidx.fragment.app.viewModels
+
 
 
 class RegisterFragment : Fragment() {
 
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: RegisterViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -85,8 +92,16 @@ class RegisterFragment : Fragment() {
         val confirmPassword = binding.confirmPasswordInput.text.toString()
 
         if (password == confirmPassword) {
-            // Implement your registration logic here
+            viewModel.registerUser(name, email, password).observe(viewLifecycleOwner, Observer { result ->
+                result.onSuccess { successMessage ->
+                    Toast.makeText(context, successMessage, Toast.LENGTH_LONG).show()
+                    navigateToLogin()
+                }.onFailure { error ->
+                    Toast.makeText(context, error.message ?: "Terjadi kesalahan", Toast.LENGTH_LONG).show()
+                }
+            })
         } else {
+            Log.d("RegisterFragment", "Password confirmation does not match for: $email")
             binding.confirmPasswordInput.error = "Passwords do not match"
         }
     }
@@ -104,6 +119,7 @@ class RegisterFragment : Fragment() {
     private fun navigateToLogin() {
         navigationListener?.navigateToLogin()
     }
+
 
     abstract class NoUnderlineSpan : ClickableSpan() {
         override fun updateDrawState(ds: TextPaint) {

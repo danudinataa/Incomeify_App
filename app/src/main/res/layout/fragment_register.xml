@@ -9,17 +9,17 @@
 
     <!-- Placeholder for App Logo -->
 
-    <!-- Welcome Back Text 3 -->
     <ImageView
         android:id="@+id/appLogo"
-        android:layout_width="301dp"
-        android:layout_height="106dp"
+        android:layout_width="330dp"
+        android:layout_height="130dp"
         android:contentDescription="@string/app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/applogo" />
 
+    <!-- Welcome Back Text 3 -->
     <TextView
         android:id="@+id/welcomeBackText3"
         style="@style/Text.Medium"
@@ -30,7 +30,7 @@
         android:textSize="26sp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintTop_toBottomOf="@id/appLogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -199,7 +199,7 @@
         style="@style/Text.Medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="50dp"
         android:textColor="@color/black"
         android:gravity="center"
         android:textSize="16sp"

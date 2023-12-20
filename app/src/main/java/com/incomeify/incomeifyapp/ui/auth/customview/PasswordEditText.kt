@@ -34,14 +34,10 @@ class PasswordEditText @JvmOverloads constructor(
     private fun validatePassword(password: String) {
         error = when {
             password.isEmpty() -> "Password cannot be empty"
-            password.length < 8 || !password.containsUpperCase() ->
-                "Password must be at least 8 characters with 1 uppercase letter"
+            password.length < 8 -> "Password must be at least 8 characters"
 
             else -> null
         }
     }
 
-    private fun String.containsUpperCase(): Boolean {
-        return this.any { it.isUpperCase() }
-    }
 }

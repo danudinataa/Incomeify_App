@@ -58,6 +58,10 @@
     <string name="error_submit">Something error. Please try again later!</string>
     <string name="error_input">All fields must be filled in!</string>
     <string name="success_saved">Successfully Saved!</string>
+    <string name="logo_description">incomeify\n</string>
+    <string name="confirm_logout">Are you sure you want to log out?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No\n</string>
 
     <!-- Dropdown Items-->
     <string-array name="list_career_level">

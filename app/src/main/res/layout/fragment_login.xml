@@ -10,8 +10,8 @@
     <!-- Placeholder for App Logo -->
     <ImageView
         android:id="@+id/appLogo"
-        android:layout_width="301dp"
-        android:layout_height="106dp"
+        android:layout_width="330dp"
+        android:layout_height="130dp"
         android:contentDescription="@string/app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -156,7 +156,7 @@
         style="@style/Text.Medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="or continue with"
         android:textColor="@color/black"
@@ -168,10 +168,10 @@
 
     <LinearLayout
         android:id="@+id/googleSignInLayout"
-        android:layout_width="311dp"
+        android:layout_width="280dp"
         android:layout_height="52dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/rounded"
         android:backgroundTint="@color/tea_green"
@@ -187,8 +187,8 @@
         <!-- Google Icon -->
         <ImageView
             android:id="@+id/googleIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
             android:layout_marginStart="0dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/google_icon" />
@@ -209,7 +209,7 @@
         style="@style/Text.Medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:textColor="@color/black"
         android:gravity="center"
         android:textSize="16sp"
