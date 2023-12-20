@@ -9,4 +9,5 @@ object Constants {
     const val INCOME = "income"
     const val REQUEST_BODY = "request_body"
 
+    const val DETAIL_SAVED = "detail_saved"
 }

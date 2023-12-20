@@ -58,9 +58,10 @@
     <string name="dismiss">Dismiss</string>
 
 
-    <!-- Error Message-->
+    <!-- Message-->
     <string name="error_submit">Something error. Please try again later!</string>
     <string name="error_input">All fields must be filled in!</string>
+    <string name="success_saved">Successfully Saved!</string>
 
     <!-- Dropdown Items-->
     <string-array name="list_career_level">
