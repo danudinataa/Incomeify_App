@@ -54,6 +54,10 @@
     <string name="onboarding_text1">Welcome to Incomeify, your smart career companion! Start your journey towards financial clarity and uncover your professional worth.</string>
     <string name="onboarding_text2">Curious about your skills value? Incomeify offers personalized data-driven predictions on salary trends and earning potential.</string>
     <string name="onboarding_text3">Ready to confidently plan your career? Incomeify provides clear salary expectations, making your future just a tap away!</string>
+    <string name="logo_description">incomeify\n</string>
+    <string name="confirm_logout">Are you sure you want to log out?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No\n</string>
 
     <!-- Dropdown Items-->
     <string-array name="list_career_level">

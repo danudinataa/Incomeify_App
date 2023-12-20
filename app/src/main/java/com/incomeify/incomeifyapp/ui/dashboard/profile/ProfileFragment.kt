@@ -1,11 +1,18 @@
 package com.incomeify.incomeifyapp.ui.dashboard.profile
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.incomeify.incomeifyapp.R
+import android.widget.Button
+import com.incomeify.incomeifyapp.data.session.SharedPreferencesManager
+import com.incomeify.incomeifyapp.ui.auth.AuthActivity
+import androidx.appcompat.app.AlertDialog
+
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +37,16 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val btnLogout = view.findViewById<Button>(R.id.button)
+        btnLogout.setOnClickListener {
+            showLogoutConfirmationDialog()
+        }
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -37,6 +54,33 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
+
+    private fun logoutUser() {
+        val sharedPreferencesManager = SharedPreferencesManager(requireContext())
+        sharedPreferencesManager.clearAuthToken()
+
+        val intent = Intent(activity, AuthActivity::class.java)
+        intent.putExtra("directLogin", true)
+        startActivity(intent)
+        activity?.finish()
+    }
+
+
+    private fun showLogoutConfirmationDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(getString(R.string.logout))
+            .setMessage(getString(R.string.confirm_logout))
+            .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+                logoutUser()
+                dialog.dismiss()
+            }
+            .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+                dialog.cancel()
+            }
+            .show()
+    }
+
+
 
     companion object {
         /**

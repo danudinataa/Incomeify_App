@@ -48,11 +48,27 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@id/buttonOnboardingNext"
+        app:layout_constraintTop_toBottomOf="@id/textOnboarding"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp">
-        <!-- Add your indicator dots here -->
+        android:layout_marginTop="65dp">
+
+        <View
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/dot_selector" />
+
+        <View
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/dot_selector" />
+
+        <View
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/dot_selector" />
     </LinearLayout>
 
     <!-- Start Button -->
@@ -71,8 +87,8 @@
         android:backgroundTint="@color/teal_deer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="32dp" />
+        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="42dp" />
 
     <!-- Back Button -->
     <Button
@@ -90,7 +106,7 @@
         android:backgroundTint="@color/teal_deer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="32dp"
-        android:layout_marginStart="32dp"/>
+        android:layout_marginBottom="52dp"
+        android:layout_marginStart="42dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
