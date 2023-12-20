@@ -120,4 +120,13 @@
         <item name="android:color">@color/tea_green</item>
     </style>
 
+    <!-- Dialog -->
+    <style name="CustomAlertDialog" parent="MaterialAlertDialog.Material3.Title.Icon.CenterStacked">
+        <item name="android:background">@color/green_silver</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColorPrimary">@color/dark_moss_green</item>
+        <item name="materialAlertDialogTitleIconStyle">@drawable/baseline_exit_to_app_24</item>
+        <item name="iconTint">@color/dark_moss_green</item>
+    </style>
+
 </resources>

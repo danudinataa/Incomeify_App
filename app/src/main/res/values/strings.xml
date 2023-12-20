@@ -31,7 +31,6 @@
     <string name="home">Home</string>
     <string name="saved">Saved</string>
     <string name="profile">Profile</string>
-
     <string name="login">LOGIN</string>
     <string name="register">REGISTER</string>
     <string name="forgot_password" translatable="false">Forgot Password?</string>
@@ -52,16 +51,15 @@
     <string name="onboarding_text2">Curious about your skills value? Incomeify offers personalized data-driven predictions on salary trends and earning potential.</string>
     <string name="onboarding_text3">Ready to confidently plan your career? Incomeify provides clear salary expectations, making your future just a tap away!</string>
     <string name="dismiss" translatable="false">OK</string>
+    <string name="cancel">Cancel</string>
 
 
     <!-- Message-->
     <string name="error_submit">Something error. Please try again later!</string>
     <string name="error_input">All fields must be filled in!</string>
     <string name="success_saved">Successfully Saved!</string>
-    <string name="logo_description">incomeify\n</string>
-    <string name="confirm_logout">Are you sure you want to log out?</string>
-    <string name="yes">Yes</string>
-    <string name="no">No\n</string>
+    <string name="logo_description" translatable="false">incomeify\n</string>
+    <string name="confirm_logout">Are you sure you want to logout?</string>
 
     <!-- Dropdown Items-->
     <string-array name="list_career_level">
