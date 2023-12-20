@@ -20,11 +20,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/btn_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="?attr/actionBarSize"
-                app:navigationIcon="@drawable/baseline_arrow_back_ios_24"
-                app:navigationIconTint="@color/may_green"
                 app:title="Income"
                 app:titleTextAppearance="@style/Text.Title"
                 app:titleTextColor="@color/la_salle_green" />

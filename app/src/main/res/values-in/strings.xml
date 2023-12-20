@@ -44,4 +44,6 @@
     <string name="success_saved">Berhasil Disimpan!</string>
     <string name="confirm_logout">Yakin ingin keluar?</string>
     <string name="cancel">Batal</string>
+    <string name="or_continue_with">atau lanjutkan dengan</string>
+    <string name="error_login_input">Mohon input email dan password!</string>
 </resources>

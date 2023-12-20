@@ -6,6 +6,7 @@ import androidx.core.content.IntentCompat.getParcelableExtra
 import androidx.lifecycle.ViewModelProvider
 import com.incomeify.incomeifyapp.R
 import com.incomeify.incomeifyapp.data.local.SavedIncome
+import com.incomeify.incomeifyapp.data.session.SharedPreferencesManager
 import com.incomeify.incomeifyapp.databinding.ActivityIncomeBinding
 import com.incomeify.incomeifyapp.domain.model.RequestPredict
 import com.incomeify.incomeifyapp.domain.repository.SavedRepository
@@ -24,6 +25,7 @@ class IncomeActivity : AppCompatActivity() {
     private val savedViewModel: SavedViewModel by lazy {
         ViewModelProvider(this, SavedViewModelFactory(savedRepository))[SavedViewModel::class.java]
     }
+    private lateinit var sharedPreferencesManager: SharedPreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +36,15 @@ class IncomeActivity : AppCompatActivity() {
 
         val income = intent.getIntExtra(INCOME, 0)
 
+        sharedPreferencesManager = SharedPreferencesManager(this)
+
+        val username = sharedPreferencesManager.getUsername() ?: "Unknown"
+
         with(binding) {
-            // TODO: Binding username 
+            tvUsername.text = getString(R.string.username_text, username)
             tvIncome.text = getString(R.string.income_text, income)
             tvCareerLevel.text = requestBody.careerLevel
-            tvExperiences.text = requestBody.experienceLevel.toString()
+            tvExperiences.text = getString(R.string.experiences_text, requestBody.experienceLevel)
             tvEmploymentType.text = requestBody.employmentType
             tvLocation.text = requestBody.location
             tvEducation.text = requestBody.educationLevel
@@ -55,7 +61,6 @@ class IncomeActivity : AppCompatActivity() {
                 savedViewModel.insertSavedIncome(savedIncome)
                 showSuccessDialog()
             }
-
         }
     }
 

@@ -12,6 +12,9 @@ object APIConfig {
     fun getPredictInstance() : APIServices {
         val retrofit = Retrofit.Builder().baseUrl(PREDICT_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        return retrofit.create(APIServices::class.java)
     }
     
     private const val baseUrl = "https://node-api-ikm4vmuapa-as.a.run.app/"

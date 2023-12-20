@@ -46,6 +46,8 @@
     <string name="app_logo" translatable="false">Logo</string>
     <string name="google_login">Continue with Google</string>
     <string name="income_text" translatable="false">Rp. %1$d</string>
+    <string name="username_text" translatable="false">Hi! %1$s</string>
+    <string name="experiences_text" translatable="false">%.1f years</string>
     <string name="onboarding_image" translatable="false">Image</string>
     <string name="onboarding_text1">Welcome to Incomeify, your smart career companion! Start your journey towards financial clarity and uncover your professional worth.</string>
     <string name="onboarding_text2">Curious about your skills value? Incomeify offers personalized data-driven predictions on salary trends and earning potential.</string>
@@ -60,6 +62,8 @@
     <string name="success_saved">Successfully Saved!</string>
     <string name="logo_description" translatable="false">incomeify\n</string>
     <string name="confirm_logout">Are you sure you want to logout?</string>
+    <string name="or_continue_with">or continue with</string>
+    <string name="error_login_input">Please enter email and password!</string>
 
     <!-- Dropdown Items-->
     <string-array name="list_career_level">

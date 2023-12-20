@@ -20,7 +20,7 @@ import androidx.fragment.app.Fragment
 import com.incomeify.incomeifyapp.R
 import com.incomeify.incomeifyapp.databinding.FragmentRegisterBinding
 import androidx.fragment.app.viewModels
-
+import com.incomeify.incomeifyapp.ui.customview.CustomDialog
 
 
 class RegisterFragment : Fragment() {
@@ -91,18 +91,25 @@ class RegisterFragment : Fragment() {
         val password = binding.passwordInput.text.toString()
         val confirmPassword = binding.confirmPasswordInput.text.toString()
 
-        if (password == confirmPassword) {
-            viewModel.registerUser(name, email, password).observe(viewLifecycleOwner, Observer { result ->
-                result.onSuccess { successMessage ->
-                    Toast.makeText(context, successMessage, Toast.LENGTH_LONG).show()
-                    navigateToLogin()
-                }.onFailure { error ->
-                    Toast.makeText(context, error.message ?: "Terjadi kesalahan", Toast.LENGTH_LONG).show()
-                }
-            })
+        if (name.isBlank() || email.isBlank() || password.isBlank()) {
+            CustomDialog(
+                requireContext(),
+                getString(R.string.error_input),
+                R.raw.error_anim).show()
         } else {
-            Log.d("RegisterFragment", "Password confirmation does not match for: $email")
-            binding.confirmPasswordInput.error = "Passwords do not match"
+            if (password == confirmPassword) {
+                viewModel.registerUser(name, email, password).observe(viewLifecycleOwner, Observer { result ->
+                    result.onSuccess { successMessage ->
+                        Toast.makeText(context, successMessage, Toast.LENGTH_LONG).show()
+                        navigateToLogin()
+                    }.onFailure { error ->
+                        Toast.makeText(context, error.message ?: "Terjadi kesalahan", Toast.LENGTH_LONG).show()
+                    }
+                })
+            } else {
+                Log.d("RegisterFragment", "Password confirmation does not match for: $email")
+                binding.confirmPasswordInput.error = "Passwords do not match"
+            }
         }
     }
 

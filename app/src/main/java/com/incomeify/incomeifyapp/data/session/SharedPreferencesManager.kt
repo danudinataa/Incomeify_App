@@ -20,10 +20,33 @@ class SharedPreferencesManager(context: Context) {
         return token
     }
 
-
     fun clearAuthToken() {
         val editor = sharedPreferences.edit()
         editor.remove("AUTH_TOKEN")
         editor.apply()
+    }
+
+    fun saveUsername(username: String) {
+        val editor = sharedPreferences.edit()
+        editor.putString("USERNAME", username)
+        editor.apply()
+    }
+
+    fun saveEmail(email: String) {
+        val editor = sharedPreferences.edit()
+        editor.putString("EMAIL", email)
+        editor.apply()
+    }
+
+    fun getUserId(): String? {
+        return sharedPreferences.getString("USER_ID", null)
+    }
+
+    fun getUsername(): String? {
+        return sharedPreferences.getString("USERNAME", null)
+    }
+
+    fun getEmail(): String? {
+        return sharedPreferences.getString("EMAIL", null)
     }
 }

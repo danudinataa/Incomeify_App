@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.incomeify.incomeifyapp.R
+import com.incomeify.incomeifyapp.data.session.SharedPreferencesManager
 import com.incomeify.incomeifyapp.databinding.FragmentHomeBinding
 import com.incomeify.incomeifyapp.domain.model.RequestPredict
 import com.incomeify.incomeifyapp.domain.viewmodel.MainViewModel
@@ -21,6 +22,7 @@ import com.incomeify.incomeifyapp.utils.Constants.REQUEST_BODY
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var sharedPreferencesManager: SharedPreferencesManager
 
     private val homeViewModel : MainViewModel by lazy {
         ViewModelProvider(this, ViewModelFactory(requireContext()))[MainViewModel::class.java]
@@ -40,9 +42,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding) {
-            // TODO: Binding Username
+        sharedPreferencesManager = SharedPreferencesManager(requireContext())
 
+        val username = sharedPreferencesManager.getUsername() ?: "Unknown"
+
+        with(binding) {
+            tvUsername.text = getString(R.string.username_text, username)
             btnSubmit.setOnClickListener { submitPredict() }
         }
 

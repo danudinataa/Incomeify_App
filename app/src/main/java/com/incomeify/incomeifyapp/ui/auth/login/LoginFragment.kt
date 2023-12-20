@@ -29,7 +29,7 @@ import android.app.Activity.RESULT_OK
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import com.incomeify.incomeifyapp.data.session.SharedPreferencesManager
-
+import com.incomeify.incomeifyapp.ui.customview.CustomDialog
 
 
 class LoginFragment : Fragment() {
@@ -40,7 +40,6 @@ class LoginFragment : Fragment() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var sharedPreferencesManager: SharedPreferencesManager
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,18 +81,27 @@ class LoginFragment : Fragment() {
         val password = binding.passwordInput.text.toString()
 
         if (email.isBlank() || password.isBlank()) {
-            Toast.makeText(context, "Please enter email and password", Toast.LENGTH_SHORT).show()
-            return
+            CustomDialog(
+                requireContext(),
+                getString(R.string.error_login_input),
+                R.raw.error_anim
+            ).show()
         }
+
         viewModel.loginUser(email, password).observe(viewLifecycleOwner) { result ->
             result.onSuccess { loginResponse ->
                 loginResponse?.token?.let { token ->
                     sharedPreferencesManager.saveAuthToken(token)
                     viewModel.getUserData(token).observe(viewLifecycleOwner) { userDataResult ->
-                        userDataResult.onSuccess { _ ->
-                            navigateToDashboard()
-                        }.onFailure { _ ->
+                        userDataResult.onSuccess { userData ->
+                            userData?.let {
+                                sharedPreferencesManager.saveUsername(userData.name.toString())
+                                sharedPreferencesManager.saveEmail(userData.email.toString())
 
+                                navigateToDashboard()
+                            }
+                        }.onFailure { _ ->
+                            // Handle failure to get user data
                         }
                     }
                 }
@@ -102,6 +110,7 @@ class LoginFragment : Fragment() {
             }
         }
     }
+
 
     private val googleSignInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
@@ -171,7 +180,6 @@ class LoginFragment : Fragment() {
         startActivity(intent)
     }
 
-
     interface LoginNavigationListener {
         fun navigateToRegister()
     }
@@ -186,6 +194,4 @@ class LoginFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }
