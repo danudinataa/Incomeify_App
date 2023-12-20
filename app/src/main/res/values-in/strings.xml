@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Incomeify App</string>
+    <string name="language">Bahasa</string>
+    <string name="change_app_language">Ganti bahasa aplikasi</string>
+    <string name="logout">Keluar</string>
+    <string name="logout_from_app">Keluar dari aplikasi</string>
+    <string name="saved_identify">Identifikasi Tersimpan</string>
+    <string name="income_information">Berikut perkiraan gaji yang bisa Anda peroleh berdasarkan informasi yang Anda masukan</string>
+    <string name="your_information">Informasimu</string>
+    <string name="career">Level Karir</string>
+    <string name="experiences">Pengalaman</string>
+    <string name="employment_type">Jenis Pekerjaan</string>
+    <string name="location">Lokasi</string>
+    <string name="education">Pendidikan</string>
+    <string name="save">SIMPAN</string>
+    <string name="q_career_level">Apa tingkat karir kamu?</string>
+    <string name="desc_career_level">Silakan pilih tingkatan karirmu</string>
+    <string name="desc_experiences">Masukkan lama pengalamanmu dalam tahun</string>
+    <string name="q_experiences">Sudah berapa lama kamu bekerja?</string>
+    <string name="q_employment_type">Apa jenis pekerjaan kamu?</string>
+    <string name="desc_employment_type">Silakan pilih jenis pekerjaanmu</string>
+    <string name="q_location">Di manakah kamu bekerja?</string>
+    <string name="desc_location">Silakan pilih lokasi kamu bekerja</string>
+    <string name="q_education">Apa pendidikan terakhir kamu?</string>
+    <string name="desc_education">Silakan pilih pendidikan terakhirmu</string>
+    <string name="submit">KIRIM</string>
+    <string name="home">Beranda</string>
+    <string name="saved">Tersimpan</string>
+    <string name="profile">Profil</string>
+    <string name="login">MASUK</string>
+    <string name="register">DAFTAR</string>
+    <string name="welcome_back1">Hai! Selamat datang kembali di</string>
+    <string name="welcome_back3">Hai! Ayo daftar dulu di</string>
+    <string name="warning_password">Password tidak boleh kosong!</string>
+    <string name="password_check">Password minimal harus 8 karakter dengan 1 huruf besar!</string>
+    <string name="register_here">Daftar</string>
+    <string name="google_login">Lanjutkan dengan Google</string>
+    <string name="onboarding_text1">Selamat datang di Incomeify, rekan karier cerdas Anda! Mulailah perjalanan Anda menuju kejelasan finansial dan temukan nilai profesional Anda.</string>
+    <string name="onboarding_text2">Penasaran dengan nilai keterampilan Anda? Incomeify menawarkan prediksi berdasarkan data yang dipersonalisasi tentang tren gaji dan potensi penghasilan.</string>
+    <string name="onboarding_text3">Siap merencanakan karier Anda dengan percaya diri? Incomeify memberikan ekspektasi gaji yang jelas, menjadikan masa depan Anda hanya dengan satu ketukan!</string>
+    <string name="error_submit">Terjadi kesalahan. Silakan coba lagi nanti!</string>
+    <string name="error_input">Semua kolom harus diisi!</string>
+    <string name="success_saved">Berhasil Disimpan!</string>
+</resources>

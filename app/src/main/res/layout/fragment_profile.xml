@@ -41,6 +41,7 @@
         tools:text="USER NAME" />
 
     <TextView
+        android:id="@+id/tv_email"
         style="@style/Text.Medium"
         android:layout_width="0dp"
         android:textAlignment="center"
@@ -72,46 +73,14 @@
         app:layout_constraintTop_toBottomOf="@id/tv_language"/>
 
     <TextView
-        android:id="@+id/tv_theme"
-        style="@style/Text.Medium"
-        android:layout_width="wrap_content"
-        android:text="@string/theme"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_change_language" />
-
-    <Button
-        android:id="@+id/btn_change_theme"
-        style="@style/CustomIconButton"
-        android:layout_width="0dp"
-        android:layout_marginTop="4dp"
-        android:clickable="false"
-        android:text="@string/change_app_theme"
-        app:icon="@drawable/baseline_theme_24"
-        app:layout_constraintEnd_toEndOf="@+id/btn_change_language"
-        app:layout_constraintStart_toStartOf="@+id/btn_change_language"
-        app:layout_constraintTop_toBottomOf="@+id/tv_theme" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:layout_width="40dp"
-        android:layout_height="24dp"
-        android:checked="true"
-        android:layout_marginEnd="20dp"
-        app:thumbTint="@color/may_green"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_change_theme"
-        app:layout_constraintEnd_toEndOf="@+id/btn_change_theme"
-        app:layout_constraintTop_toTopOf="@+id/btn_change_theme" />
-
-    <TextView
         android:id="@+id/logout"
         style="@style/Text.Medium"
         android:layout_width="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
         android:text="@string/logout"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_change_theme" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_change_language" />
 
     <Button
         android:id="@+id/button"
@@ -122,8 +91,8 @@
         android:textColor="@color/red"
         app:icon="@drawable/baseline_exit_to_app_24"
         app:iconTint="@color/red"
-        app:layout_constraintEnd_toEndOf="@+id/btn_change_theme"
-        app:layout_constraintStart_toStartOf="@+id/btn_change_theme"
+        app:layout_constraintEnd_toEndOf="@+id/btn_change_language"
+        app:layout_constraintStart_toStartOf="@+id/btn_change_language"
         app:layout_constraintTop_toBottomOf="@+id/logout" />
 
 
