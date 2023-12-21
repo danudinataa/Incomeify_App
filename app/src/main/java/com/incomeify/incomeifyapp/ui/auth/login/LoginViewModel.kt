@@ -23,18 +23,26 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    fun googleLogin(requestGoogle: RequestGoogle) = liveData(Dispatchers.IO) {
+    fun googleLogin() = liveData(Dispatchers.IO) {
         try {
-            val response = APIConfig.getInstance().googleLogin(requestGoogle).execute()
-            if (response.isSuccessful && response.body()?.success == true) {
-                Log.d("LoginViewModel", "Login success")
-                emit(Result.success("Welcome to Incomeify"))
+            val response = APIConfig.getInstance().googleLogin().execute()
+            Log.d("LoginViewModel", "Response: $response")
+            if (response.isSuccessful) {
+                val responseBody = response.body()
+                if (responseBody != null) {
+                    Log.d("LoginViewModel", "Login success with response: $responseBody")
+                    emit(Result.success("Welcome to Incomeify"))
+                } else {
+                    Log.d("LoginViewModel", "Login failed: Response body is null")
+                    emit(Result.failure(RuntimeException("Failed to login with Google")))
+                }
             } else {
                 Log.d("LoginViewModel", "Login failed: Response unsuccessful")
                 emit(Result.failure(RuntimeException("Failed to login with Google")))
             }
         } catch (e: Exception) {
             Log.d("LoginViewModel", "Login failed: ${e.message}")
+            e.printStackTrace()
             emit(Result.failure(RuntimeException("Network error")))
         }
     }

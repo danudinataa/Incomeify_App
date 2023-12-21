@@ -27,7 +27,7 @@ interface APIServices {
     fun registerUser(@Body body: RequestRegister ): Call<RegisterResponse>
 
     @GET("auth/google")
-    fun googleLogin(@Body body: RequestGoogle): Call<LoginResponse>
+    fun googleLogin(): Call<LoginResponse>
 
     @GET("api/user")
     fun getUserData(@Header("Authorization") token: String): Call<UserResponse>

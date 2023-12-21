@@ -61,9 +61,9 @@ class LoginFragment : Fragment() {
             loginUser()
         }
 
-        binding.googleSignInLayout.setOnClickListener {
+        /*binding.googleSignInLayout.setOnClickListener {
             signInWithGoogle()
-        }
+        }*/
 
         setupClickableText()
     }
@@ -158,7 +158,7 @@ class LoginFragment : Fragment() {
             if (idToken != null) {
                 val requestGoogle = RequestGoogle(token = idToken)
 
-                viewModel.googleLogin(requestGoogle).observe(viewLifecycleOwner) { result ->
+                viewModel.googleLogin().observe(viewLifecycleOwner) { result ->
                     result.onSuccess {
                         Log.d("LoginFragment", "Login success")
                         navigateToDashboard()

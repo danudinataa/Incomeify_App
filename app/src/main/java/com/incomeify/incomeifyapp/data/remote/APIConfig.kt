@@ -1,5 +1,6 @@
 package com.incomeify.incomeifyapp.data.remote
 
+import com.google.gson.GsonBuilder
 import com.incomeify.incomeifyapp.utils.Constants.PREDICT_URL
 import de.hdodenhof.circleimageview.BuildConfig
 import okhttp3.OkHttpClient
@@ -30,13 +31,16 @@ object APIConfig {
             .addInterceptor(loggingInterceptor)
             .build()
 
+        val gson = GsonBuilder().setLenient().create()
+
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
             .build()
 
         return retrofit.create(APIServices::class.java)
     }
+
 
 }
