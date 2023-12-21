@@ -1,13 +1,14 @@
 package com.incomeify.incomeifyapp.ui.dashboard.profile
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.incomeify.incomeifyapp.R
 import com.incomeify.incomeifyapp.data.session.SharedPreferencesManager
 import com.incomeify.incomeifyapp.databinding.FragmentProfileBinding
@@ -60,17 +61,26 @@ class ProfileFragment : Fragment() {
     }
 
     private fun showLogoutDialog() {
-        MaterialAlertDialogBuilder(requireContext(), R.style.CustomAlertDialogTheme)
-            .setTitle(getString(R.string.logout))
-            .setMessage(getString(R.string.confirm_logout))
-            .setIcon(R.drawable.baseline_exit_to_app_24)
-            .setPositiveButton(getString(R.string.logout)) { dialog, _ ->
-                logoutUser()
-                dialog.dismiss()
-            }
-            .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
-                dialog.cancel()
-            }
-            .show()
+        val dialog = Dialog(requireContext())
+
+        dialog.setContentView(R.layout.dialog_logout)
+
+        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val tvConfirmLogout = dialog.findViewById<TextView>(R.id.tvConfirmLogout)
+        val tvCancelLogout = dialog.findViewById<TextView>(R.id.tvCancelLogout)
+
+        tvConfirmLogout.setOnClickListener {
+            logoutUser()
+            dialog.dismiss()
+        }
+
+        tvCancelLogout.setOnClickListener {
+            dialog.cancel()
+        }
+
+        dialog.show()
     }
+
 }
