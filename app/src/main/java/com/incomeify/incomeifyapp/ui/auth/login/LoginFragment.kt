@@ -28,6 +28,7 @@ import com.incomeify.incomeifyapp.domain.model.RequestGoogle
 import android.app.Activity.RESULT_OK
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
+import com.google.android.material.snackbar.Snackbar
 import com.incomeify.incomeifyapp.data.session.SharedPreferencesManager
 import com.incomeify.incomeifyapp.ui.customview.CustomDialog
 
@@ -69,12 +70,13 @@ class LoginFragment : Fragment() {
 
     private fun initializeGoogleSignIn() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("835024650191-kbhlv8vqbt2u7vqq8iqgpflptatn4ajt.apps.googleusercontent.com")
+            .requestIdToken("1040188149750-9gvng94psi0ia553fk5m1j8eial6vt9s.apps.googleusercontent.com")
             .requestEmail()
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
     }
+
 
     private fun loginUser() {
         val email = binding.emailInput.text.toString()
@@ -86,63 +88,85 @@ class LoginFragment : Fragment() {
                 getString(R.string.error_login_input),
                 R.raw.error_anim
             ).show()
-        }
+        } else {
+            viewModel.loginUser(email, password).observe(viewLifecycleOwner) { result ->
+                result.onSuccess { loginResponse ->
+                    loginResponse?.token?.let { token ->
+                        sharedPreferencesManager.saveAuthToken(token)
+                        viewModel.getUserData(token).observe(viewLifecycleOwner) { userDataResult ->
+                            userDataResult.onSuccess { userData ->
+                                userData?.let {
+                                    sharedPreferencesManager.saveUsername(userData.name.toString())
+                                    sharedPreferencesManager.saveEmail(userData.email.toString())
 
-        viewModel.loginUser(email, password).observe(viewLifecycleOwner) { result ->
-            result.onSuccess { loginResponse ->
-                loginResponse?.token?.let { token ->
-                    sharedPreferencesManager.saveAuthToken(token)
-                    viewModel.getUserData(token).observe(viewLifecycleOwner) { userDataResult ->
-                        userDataResult.onSuccess { userData ->
-                            userData?.let {
-                                sharedPreferencesManager.saveUsername(userData.name.toString())
-                                sharedPreferencesManager.saveEmail(userData.email.toString())
-
-                                navigateToDashboard()
+                                    navigateToDashboard()
+                                }
+                            }.onFailure { _ ->
+                                // Handle failure to get user data
                             }
-                        }.onFailure { _ ->
-                            // Handle failure to get user data
                         }
                     }
+                }.onFailure { error ->
+                    Toast.makeText(context, error.message, Toast.LENGTH_LONG).show()
                 }
-            }.onFailure { error ->
-                Toast.makeText(context, error.message, Toast.LENGTH_LONG).show()
             }
         }
+
+
     }
 
-
     private val googleSignInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        Log.d("LoginFragment", "onActivityResult: ${result.resultCode}")
+        Log.d("LoginFragment", "onActivityResult: ${result.data}")
+
         if (result.resultCode == RESULT_OK) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
             handleSignInResult(task)
         } else {
+            // Check if there's any data in the result
+            if (result.data != null) {
+                // Log additional information from the Intent
+                Log.d("LoginFragment", "onActivityResult: ${result.data!!.extras}")
+
+                // Extract and log the contents of the extras bundle
+                val extras = result.data!!.extras
+                if (extras != null) {
+                    val keySet = extras.keySet()
+                    for (key in keySet) {
+                        Log.d("LoginFragment", "onActivityResult - Extra: $key - Value: ${extras.get(key)}")
+                    }
+                }
+            }
+
             Log.d("LoginFragment", "Google Sign-In failed or was cancelled")
         }
     }
 
-
     private fun signInWithGoogle() {
         Log.d("LoginFragment", "signInWithGoogle called")
         val signInIntent = googleSignInClient.signInIntent
+        Log.d("LoginFragment", "signInWithGoogle - Intent: $signInIntent")
         googleSignInLauncher.launch(signInIntent)
+        navigateToDashboard()
     }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-        Log.d("LoginFragment", "handleSignInResult called")
         try {
             val account = completedTask.getResult(ApiException::class.java)
             val idToken = account?.idToken
-            Log.d("LoginFragment", "Google idToken: $idToken")
+
             if (idToken != null) {
                 val requestGoogle = RequestGoogle(token = idToken)
+
                 viewModel.googleLogin(requestGoogle).observe(viewLifecycleOwner) { result ->
                     result.onSuccess {
                         Log.d("LoginFragment", "Login success")
                         navigateToDashboard()
                     }.onFailure { error ->
                         Log.d("LoginFragment", "Login failed: ${error.message}")
-                        Toast.makeText(context, error.message, Toast.LENGTH_LONG).show()
+                        Snackbar.make(requireView(), error.message ?: "Unknown error", Snackbar.LENGTH_LONG).show()
+                        Log.e("LoginFragment", "Google Sign-In failed: ${error.message}")
+                        Snackbar.make(requireView(), "Google Sign-In failed: ${error.message}", Snackbar.LENGTH_LONG).show()
                     }
                 }
             } else {
@@ -150,7 +174,8 @@ class LoginFragment : Fragment() {
             }
         } catch (e: ApiException) {
             Log.e("LoginFragment", "Google Sign-In failed: ${e.message}")
-            Toast.makeText(context, "Google Sign-In failed: ${e.message}", Toast.LENGTH_LONG).show()
+            e.printStackTrace() // Add this line to print the stack trace
+            Snackbar.make(requireView(), "Google Sign-In failed: ${e.message}", Snackbar.LENGTH_LONG).show()
         }
     }
 

@@ -48,4 +48,5 @@
     <string name="or_continue_with">atau lanjutkan dengan</string>
     <string name="error_login_input">Mohon input email dan password!</string>
     <string name="text_register">Daftar</string>
+    <string name="confirm_password">Konfirmasi Password</string>
 </resources>

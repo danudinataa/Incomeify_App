@@ -51,7 +51,4 @@ class LoginViewModel : ViewModel() {
             emit(Result.failure(RuntimeException("Kesalahan jaringan")))
         }
     }
-
-
 }
-
