@@ -10,4 +10,6 @@ object Constants {
     const val REQUEST_BODY = "request_body"
 
     const val DETAIL_SAVED = "detail_saved"
+
+    const val REQ_ONE_TAP = 100
 }
