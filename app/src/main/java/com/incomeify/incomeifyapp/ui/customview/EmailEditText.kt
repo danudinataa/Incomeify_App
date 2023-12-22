@@ -1,12 +1,13 @@
-package com.incomeify.incomeifyapp.ui.auth.customview
+package com.incomeify.incomeifyapp.ui.customview
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Patterns
 
-class NamaEditText @JvmOverloads constructor(
+class EmailEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = androidx.appcompat.R.attr.editTextStyle
@@ -23,14 +24,14 @@ class NamaEditText @JvmOverloads constructor(
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if (!isNameValid(s.toString())) {
-                    error = "Invalid name"
+                if (!isEmailValid(s.toString())) {
+                    error = "Invalid email"
                 }
             }
         })
     }
 
-    private fun isNameValid(name: CharSequence?): Boolean {
-        return name != null && name.trim().isNotEmpty()
+    private fun isEmailValid(email: CharSequence?): Boolean {
+        return email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }

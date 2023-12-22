@@ -68,6 +68,7 @@
     <string name="error_login_input">Please enter email and password!</string>
     <string name="name">Name</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="text_login">Login</string>
 
     <!-- Dropdown Items-->
     <string-array name="list_career_level">

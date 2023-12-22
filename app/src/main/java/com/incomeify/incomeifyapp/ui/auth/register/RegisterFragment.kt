@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import com.incomeify.incomeifyapp.R
 import com.incomeify.incomeifyapp.databinding.FragmentRegisterBinding
 import androidx.fragment.app.viewModels
+import com.incomeify.incomeifyapp.domain.viewmodel.RegisterViewModel
 import com.incomeify.incomeifyapp.ui.customview.CustomDialog
 
 

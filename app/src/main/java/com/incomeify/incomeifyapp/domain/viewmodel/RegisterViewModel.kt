@@ -1,4 +1,4 @@
-package com.incomeify.incomeifyapp.ui.auth.register
+package com.incomeify.incomeifyapp.domain.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData

@@ -26,9 +26,6 @@ interface APIServices {
     @Headers("Content-Type: application/json;charset=UTF-8")
     fun registerUser(@Body body: RequestRegister ): Call<RegisterResponse>
 
-    @GET("auth/google")
-    fun googleLogin(): Call<LoginResponse>
-
     @GET("api/user")
     fun getUserData(@Header("Authorization") token: String): Call<UserResponse>
 }

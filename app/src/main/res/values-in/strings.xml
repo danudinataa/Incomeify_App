@@ -40,6 +40,7 @@
     <string name="onboarding_text1">Selamat datang di Incomeify, rekan karier cerdas Anda! Mulailah perjalanan Anda menuju kejelasan finansial dan temukan nilai profesional Anda.</string>
     <string name="onboarding_text2">Penasaran dengan nilai keterampilan Anda? Incomeify menawarkan prediksi berdasarkan data yang dipersonalisasi tentang tren gaji dan potensi penghasilan.</string>
     <string name="onboarding_text3">Siap merencanakan karier Anda dengan percaya diri? Incomeify memberikan ekspektasi gaji yang jelas, menjadikan masa depan Anda hanya dengan satu ketukan!</string>
+    <string name="confirmation_logout">Yakin ingin keluar?</string>
     <string name="error_submit">Terjadi kesalahan. Silakan coba lagi nanti!</string>
     <string name="error_input">Semua kolom harus diisi!</string>
     <string name="success_saved">Berhasil Disimpan!</string>
@@ -49,4 +50,5 @@
     <string name="error_login_input">Mohon input email dan password!</string>
     <string name="text_register">Daftar</string>
     <string name="confirm_password">Konfirmasi Password</string>
+    <string name="text_login">Masuk</string>
 </resources>

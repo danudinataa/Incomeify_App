@@ -1,19 +1,21 @@
-package com.incomeify.incomeifyapp.ui.auth.customview
+package com.incomeify.incomeifyapp.ui.customview
 
 import android.content.Context
-import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatEditText
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Patterns
+import android.text.method.PasswordTransformationMethod
+import android.util.AttributeSet
+import androidx.appcompat.widget.AppCompatEditText
 
-class EmailEditText @JvmOverloads constructor(
+class PasswordEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = androidx.appcompat.R.attr.editTextStyle
 ) : AppCompatEditText(context, attrs, defStyleAttr) {
 
     init {
+        transformationMethod = PasswordTransformationMethod.getInstance()
+
         addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // Do nothing
@@ -24,14 +26,18 @@ class EmailEditText @JvmOverloads constructor(
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if (!isEmailValid(s.toString())) {
-                    error = "Invalid email"
-                }
+                validatePassword(s.toString())
             }
         })
     }
 
-    private fun isEmailValid(email: CharSequence?): Boolean {
-        return email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    private fun validatePassword(password: String) {
+        error = when {
+            password.isEmpty() -> "Password cannot be empty"
+            password.length < 8 -> "Password must be at least 8 characters"
+
+            else -> null
+        }
     }
+
 }

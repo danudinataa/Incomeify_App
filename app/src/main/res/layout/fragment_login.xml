@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="2dp"
-                    android:text="@string/login"
+                    android:text="@string/text_login"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +103,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/loginTitle">
 
-                    <com.incomeify.incomeifyapp.ui.auth.customview.EmailEditText
+                    <com.incomeify.incomeifyapp.ui.customview.EmailEditText
                         android:id="@+id/emailInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                     app:layout_constraintStart_toStartOf="@id/emailInputLayout"
                     app:layout_constraintTop_toBottomOf="@id/emailInputLayout">
 
-                    <com.incomeify.incomeifyapp.ui.auth.customview.PasswordEditText
+                    <com.incomeify.incomeifyapp.ui.customview.PasswordEditText
                         android:id="@+id/passwordInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
