@@ -82,7 +82,7 @@
     <string-array name="list_employment_type">
         <item>Fulltime</item>
         <item>Contract</item>
-        <item>Part Time</item>
+        <item>Part time</item>
         <item>Temporary</item>
     </string-array>
 
